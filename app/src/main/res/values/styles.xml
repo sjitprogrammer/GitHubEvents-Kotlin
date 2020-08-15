@@ -3,8 +3,43 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/white</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="fontFamily">@font/quicksand_medium</item>
+    </style>
+    <style name="text_appname">
+        <item name="android:textColor">@color/darkGray</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/text_appname</item>
     </style>
 
+    <style name="text_title">
+        <item name="android:textColor">@color/darkGray</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/text_title</item>
+    </style>
+
+    <style name="text_title_see_all">
+        <item name="android:textColor">@color/orange</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/text_dsc</item>
+    </style>
+
+    <style name="text_name">
+        <item name="android:textColor">@color/darkGray</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/text_dsc</item>
+    </style>
+
+    <style name="text_name_land">
+        <item name="android:textColor">@color/lightGray</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/text_dsc</item>
+    </style>
+
+    <style name="text_des">
+        <item name="android:textColor">@color/lightGray</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/text_sup</item>
+    </style>
 </resources>

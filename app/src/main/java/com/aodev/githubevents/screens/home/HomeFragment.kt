@@ -1,14 +1,14 @@
 package com.aodev.githubevents.screens.home
 
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.SearchView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.os.bundleOf
+import androidx.core.view.size
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
@@ -18,31 +18,34 @@ import com.aodev.githubevents.data.EventsItemAdapter
 import com.aodev.githubevents.data.EventsLandAdapter
 import com.aodev.githubevents.listener.OnItemClickListener
 import com.aodev.githubevents.network.data.EventsItem
-import kotlinx.android.synthetic.main.event_item.*
 import kotlinx.android.synthetic.main.event_item.view.*
-import kotlinx.android.synthetic.main.event_item.view.card_item
-import kotlinx.android.synthetic.main.events_item_land.view.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import java.util.*
 import kotlin.collections.ArrayList
+
 
 class HomeFragment : Fragment(), OnItemClickListener {
 
     val listItem:ArrayList<EventsItem> = ArrayList()
     val tempItem:ArrayList<EventsItem> = ArrayList()
     val tempItemLand:ArrayList<EventsItem> = ArrayList()
-
     lateinit var viewModel:HomeViewModel
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        val rootView: View = inflater.inflate(R.layout.fragment_home, container, false)
+
+        val myToolbar =
+            rootView.findViewById(R.id.toolbar) as Toolbar
+        (activity as AppCompatActivity?)!!.setSupportActionBar(myToolbar)
+        setHasOptionsMenu(true)
+        return rootView
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
 
         showData()
@@ -54,6 +57,17 @@ class HomeFragment : Fragment(), OnItemClickListener {
             recyclerview.adapter?.notifyDataSetChanged()
             recyclerview_land.adapter?.notifyDataSetChanged()
         }
+
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.home_menu, menu)
+        val search = menu.findItem(R.id.action_search)
+        val searchView = search.actionView as SearchView
+        searchView.setBackgroundResource(R.drawable.background_search)
+        searchView.setMaxWidth(Integer.MAX_VALUE)
+        searchView.queryHint = "Search"
+
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(p0: String?): Boolean {
                 return true
@@ -80,8 +94,8 @@ class HomeFragment : Fragment(), OnItemClickListener {
             }
 
         })
+        super.onCreateOptionsMenu(menu, inflater)
     }
-
     private fun OnObserveViewModel(){
         viewModel._eventsFetchAll.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
 

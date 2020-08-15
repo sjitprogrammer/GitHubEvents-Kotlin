@@ -35,7 +35,7 @@ class EventsItemAdapter(
             .placeholder(R.drawable.placeholder_github)
             .into(holder.imageView);
         holder.text_title.text = item.actor.login
-
+        holder.text_id.text = item.actor.id.toString()
         holder.itemView.setOnClickListener {
             onItemClickListener.onClickedItem(it, item.id, position)
         }
@@ -45,6 +45,7 @@ class EventsItemAdapter(
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val imageView: ImageView = view.findViewById(R.id.icon_image)
         val text_title: TextView = view.findViewById(R.id.textView_title)
+        val text_id: TextView = view.findViewById(R.id.textView_id)
 
 
     }
