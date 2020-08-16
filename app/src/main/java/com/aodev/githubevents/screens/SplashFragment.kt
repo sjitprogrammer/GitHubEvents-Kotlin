@@ -31,7 +31,7 @@ class SplashFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val animate: Animation = AnimationUtils.loadAnimation(requireContext(),R.anim.splash_anim)
-        splash_logo.animation = animate
+        logo_github_event.animation = animate
     }
 
 

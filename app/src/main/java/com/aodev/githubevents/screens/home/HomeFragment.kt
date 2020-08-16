@@ -107,6 +107,7 @@ class HomeFragment : Fragment(), OnItemClickListener {
             tempItemLand.reverse()
             recyclerview.adapter?.notifyDataSetChanged()
             recyclerview_land.adapter?.notifyDataSetChanged()
+            textView_Events.text = "Events ${it.size.toString()?:"0"}"
 
         })
 

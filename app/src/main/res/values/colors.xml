@@ -10,4 +10,7 @@
     <color name="darkBlue">#2D2F59</color>
     <color name="black">#000000</color>
     <color name="orange">#F95D25</color>
+    <color name="startColor">#ffe431</color>
+    <color name="centerColor">#83318b</color>
+    <color name="endColor">#eb3240</color>
 </resources>

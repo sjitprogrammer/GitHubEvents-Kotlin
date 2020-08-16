@@ -5,26 +5,16 @@
     android:id="@+id/splash_logo"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".screens.SplashFragment">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile_image"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:src="@drawable/placeholder_github"
+    <ImageView
+        android:id="@+id/logo_github_event"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/github_event"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        style="@style/text_appname"
-        android:text="@string/app_name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_image" />
 </androidx.constraintlayout.widget.ConstraintLayout>
