@@ -1,4 +1,4 @@
-# GitHubEvents-Kotlin
+# GitHubEvents-Kotlin-MVVM
 
 application แสดงข้อมูลที่ได้จากการดึง api จาก github
 ดึง api จาก https://api.github.com/events
