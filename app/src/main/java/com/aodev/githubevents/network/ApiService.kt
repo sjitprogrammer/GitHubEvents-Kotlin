@@ -7,7 +7,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 
 private const val BASE_URL = "https://api.github.com/"
-private const val ACCESS_TOKEN = "?access_token=58677159cddc49b76540ab68ffe6897914abba8c"
+//private const val ACCESS_TOKEN = "?access_token=58677159cddc49b76540ab68ffe6897914abba8c"
+//up ขึ้น github แล้ว OAuth ถูกลบออก ขออนุญาตแก้โค้ดออก
 
 private val retrofit = Retrofit.Builder()
     .addConverterFactory(GsonConverterFactory.create())
@@ -16,7 +17,7 @@ private val retrofit = Retrofit.Builder()
 
 interface ApiService {
 
-    @GET("events"+ACCESS_TOKEN)
+    @GET("events")
     suspend fun fetchAllEvents() : Response<Events>
 
 }
